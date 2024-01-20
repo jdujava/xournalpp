@@ -442,6 +442,9 @@ void SettingsDialog::load() {
     gtk_spin_button_set_value(GTK_SPIN_BUTTON(builder.get("edgePanSpeed")), settings->getEdgePanSpeed());
     gtk_spin_button_set_value(GTK_SPIN_BUTTON(builder.get("edgePanMaxMult")), settings->getEdgePanMaxMult());
 
+    gtk_spin_button_set_value(GTK_SPIN_BUTTON(builder.get("selectPaddingMult")), settings->getSelectPaddingMult());
+    gtk_spin_button_set_value(GTK_SPIN_BUTTON(builder.get("buttonSizeMult")), settings->getButtonSizeMult());
+
     GtkWidget* spZoomStep = builder.get("spZoomStep");
     gtk_spin_button_set_value(GTK_SPIN_BUTTON(spZoomStep), settings->getZoomStep());
 
@@ -901,6 +904,9 @@ void SettingsDialog::save() {
 
     settings->setEdgePanSpeed(gtk_spin_button_get_value(GTK_SPIN_BUTTON(builder.get("edgePanSpeed"))));
     settings->setEdgePanMaxMult(gtk_spin_button_get_value(GTK_SPIN_BUTTON(builder.get("edgePanMaxMult"))));
+
+    settings->setSelectPaddingMult(gtk_spin_button_get_value(GTK_SPIN_BUTTON(builder.get("selectPaddingMult"))));
+    settings->setButtonSizeMult(gtk_spin_button_get_value(GTK_SPIN_BUTTON(builder.get("buttonSizeMult"))));
 
     GtkWidget* spZoomStep = builder.get("spZoomStep");
     double zoomStep = gtk_spin_button_get_value(GTK_SPIN_BUTTON(spZoomStep));
